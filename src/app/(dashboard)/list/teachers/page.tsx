@@ -4,6 +4,7 @@ import TableSearch from "@/components/TableSearch"
 import Image from "next/image"
 import Link from "next/link"
 import { role, teachersData } from "@/lib/data";
+import FormModal from "@/components/FormModal"
 
 type Teacher = {
   id: number;
@@ -60,9 +61,10 @@ const TeacherList = () => {
             </button>
           </Link>
           {role === "admin" && (
-            <button className="w-7 h-7 flex items-center justify-center rounded-full bg-schoolPurple">
-            <Image src="/view.png" alt="" width={16} height={16}/>
-          </button>
+            <>
+            <FormModal table="teacher" type="update" id={item.id}/>
+            <FormModal table="teacher" type="delete" id={item.id}/>
+            </>
           )}
         </div>
       </td>
@@ -84,9 +86,7 @@ const TeacherList = () => {
               <Image src="/sort.png" alt="" width={14} height={14}/>
             </button>
             {role === "admin" && (
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-schoolYellow">
-              <Image src="/plus.png" alt="" width={14} height={14}/>
-            </button>
+            <FormModal table="teacher" type="create"/>
             )}
           </div>
         </div>
