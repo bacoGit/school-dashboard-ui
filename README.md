@@ -16,3 +16,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Libraries used on this project
+
+recharts
+react-calendar
+react-big-calendar
+moment
+react-hook-form
+zod
+@hookform/resolvers
