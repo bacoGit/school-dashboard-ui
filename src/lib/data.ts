@@ -999,6 +999,89 @@ export const incidentsData = [
   },
 ];
 
+export const leaveRequestsData = [
+  {
+    id: 1,
+    title: "Lake Trip",
+    category: "1",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 2,
+    title: "Picnic",
+    category: "2",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 3,
+    title: "Beach Trip",
+    category: "3",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 4,
+    title: "Museum Trip",
+    category: "4",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 5,
+    title: "Music Concert",
+    category: "5",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 6,
+    title: "Magician Show",
+    category: "1",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 7,
+    title: "Lake Trip",
+    category: "2",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 8,
+    title: "Cycling Race",
+    category: "3",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 9,
+    title: "Art Exhibition",
+    category: "4",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+  {
+    id: 10,
+    title: "Sports Tournament",
+    category: "5",
+    date: "2025-01-01",
+    students:  ["Lola Newman", "Darrell Delgado"],
+    comments: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+  },
+];
+
 // YOU SHOULD CHANGE THE DATES OF THE EVENTS TO THE CURRENT DATE TO SEE THE EVENTS ON THE CALENDAR
 export const calendarEvents = [
   {

@@ -55,6 +55,12 @@ const menuItems = [
         visible: ["admin", "teacher", "student", "parent"],
       },
       {
+        icon: "/sick.png",
+        label: "Leave Request",
+        href: "/list/leaverequests",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
+      {
         icon: "/calendar.png",
         label: "Events",
         href: "/list/events",

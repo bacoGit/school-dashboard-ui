@@ -1,5 +1,6 @@
 import Announcements from "@/components/Announcements"
 import BigCalendar from "@/components/BigCalendar"
+import LeaveRequests from "@/components/LeaveRequests"
 import Performance from "@/components/Performance"
 import Image from "next/image"
 import Link from "next/link"
@@ -88,6 +89,7 @@ const SingleStudentPage = () => {
                 </div>
             </div>
             <Performance />
+            <LeaveRequests />
             <Announcements />
         </div>
     </div>
