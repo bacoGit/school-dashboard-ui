@@ -1,0 +1,175 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String @id
+  username  String @unique
+}
+
+model Student {
+  id        String @id
+  username  String @unique
+  name      String
+  surname   String
+  email     String? @unique
+  createdAt DateTime @default(now())
+  parentId  String
+  parent    Parent @relation(fields: [parentId], references: [id])
+  classId   Int
+  class     Class @relation(fields: [classId], references: [id])
+  gradeId   Int
+  garde     Grade @relation(fields: [gradeId], references: [id])
+  incidents Incident[]
+  attendances Attendance[]
+  results   Result[]
+}
+
+model Teacher {
+  id        String @id
+  username  String @unique
+  name      String
+  surname   String
+  email     String? @unique
+  createdAt DateTime @default(now())
+  phone     String?  @unique
+  subjects  Subject[]
+  lessons   Lesson[]
+  classes   Class[]
+}
+
+model Parent {
+  id        String @id
+  username  String @unique
+  name      String
+  surname   String
+  email     String? @unique
+  phone     String @unique
+  createdAt DateTime @default(now())
+  students  Student[]
+}
+
+model Grade {
+  id        Int @id @default(autoincrement())
+  level     Int @unique
+  students  Student[]
+  classes   Class[]
+}
+
+model Class {
+  id        Int @id @default(autoincrement())
+  name      String @unique
+  capacity  Int
+
+  supervisorId String?
+  supervisor Teacher? @relation(fields: [supervisorId], references: [id])
+  lessons   Lesson[]
+  students  Student[]
+  gradeId   Int
+  garde     Grade @relation(fields: [gradeId], references: [id])
+  events    Event[]
+  announcements Announcement[]
+}
+
+model Subject {
+  id        Int @id @default(autoincrement())
+  name      String @unique
+  teachers  Teacher[]
+  lessons   Lesson[]
+}
+
+model Lesson {
+  id        Int @id @default(autoincrement())
+  name      String
+  day       Day
+  startTime DateTime
+  endTime   DateTime
+
+  subjectId Int
+  subject   Subject @relation(fields: [subjectId], references: [id])
+  classId   Int
+  class     Class @relation(fields: [classId], references: [id])
+  teacherId String
+  teacher   Teacher @relation(fields: [teacherId], references: [id])
+  attendances Attendance[]
+  results   Result[]
+}
+
+model Incident {
+  id        Int @id @default(autoincrement())
+  name      String
+  type      IncidentType
+  students  Student[]
+  day       DateTime
+}
+
+model Result {
+  id        Int @id @default(autoincrement())
+  score     Decimal
+  period    Period
+  
+  lessonId  Int
+  lesson    Lesson @relation(fields: [lessonId], references: [id])
+  studentId String
+  student   Student @relation(fields: [studentId], references: [id])
+
+}
+
+model Attendance {
+  id        Int @id @default(autoincrement())
+  date      DateTime
+  present   Boolean
+
+  studentId String
+  student   Student @relation(fields: [studentId], references: [id])
+  lessonId  Int
+  lesson    Lesson @relation(fields: [lessonId], references: [id])
+}
+
+model Event {
+  id        Int @id @default(autoincrement())
+  title     String
+  description String
+  startDate DateTime
+  endDate   DateTime
+
+  classId   Int?
+  class     Class? @relation(fields: [classId], references: [id])
+}
+
+model Announcement {
+  id        Int @id @default(autoincrement())
+  title     String
+  description String
+  date      DateTime
+
+  classId   Int?
+  class     Class? @relation(fields: [classId], references: [id])
+}
+
+enum IncidentType {
+  VIOLENCIA
+  ACOSO
+  PORTACION_DE_ARMA
+  PORTACION_DE_DROGAS
+}
+
+enum Day {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+}
+
+enum Period {
+  I 
+  II
+  III
+  IV
+}

@@ -25,3 +25,4 @@ moment
 react-hook-form
 zod
 @hookform/resolvers
+prisma
